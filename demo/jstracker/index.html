@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>基于Jstracker的日志分析与思考</title>
+    
+    <meta name="description" content="基于Jstracker的日志分析与思考" />
+    <meta name="author" content="jixiang.hjx@alibaba-inc.com" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="style.css" rel="stylesheet" />
+    <link href="prism.css" rel="stylesheet" />
+    
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+    <!-- 标题 -->
+    <div id="start" class="step" data-x="0" data-y="0" data-z="0" style="left: -80px;top: 20px;">
+        <img src="img/step1.png" alt="title">
+    </div>
+    <!-- 
+       什么是Jstracker ? 一个前端监控打点方案。
+       与一般埋点的异同：
+       SPM：基于位置
+       黄金令箭：基于行为
+       Jstracker: 基于逻辑
+     -->
+     <div id="what-is-jstracker" class="step" data-x="1400" data-y="0" data-z="1">
+        <img src="img/jstracker.png" class="reflect" alt="spm" style="position: absolute; left: -220px; top: -300px; height: 650px; width: 850px;">
+    </div>
+    <div class="step" data-x="1400" data-y="0" data-z="1">
+        <div style="position:absolute;right:-200px;top:-140px;">
+           <h3>淘宝的一个JS日志埋点工具</h3>
+           <a href="http://wiki.ued.taobao.net/doku.php?id=user:xixia:jstracker" target="_blank">前端通用监控平台</a> 
+        </div>
+    </div>
+    <div class="step" data-x="1400" data-y="1400" data-z="3" data-rotate-x="-100" data-rotate-y="10">
+        <img src="img/spm.png" alt="spm" style="position:absolute;left:-240px;top: -300px;" width="850" />
+    </div>
+    <style>
+      .what-li{
+         position: absolute;
+         left: 500px;
+         top: -80px;
+      }
+      .what-li.second{
+         top: 0;
+      }
+      .what-li.third{
+         top: 80px;
+      }
+    </style>
+    <div class="step" data-x="1400" data-y="1400" data-z="2" data-rotate-x="-100" data-rotate-y="10">
+         <li class="what-li">SPM: 基于位置</li>
+    </div>
+    <div class="step" data-x="1400" data-y="1400" data-z="2" data-rotate-x="-100" data-rotate-y="10">
+         <li class="what-li second">黄金令箭：基于行为</li>
+    </div>
+    <div class="step" data-x="1400" data-y="1400" data-z="2" data-rotate-x="-100" data-rotate-y="10">
+         <li class="what-li third">Jstracker: 基于逻辑</li>
+    </div>
+    <!-- 
+       基于Jstracker,what can we do?
+       0. @游侠 实时监控JS报错
+       0. 性能分析 => 各个浏览器的onload时长
+       0. 模块的使用统计 => log
+       0. 用户行为分析 => 停留时间等
+       0. 功能验证
+     -->
+     <style>
+       .what-can-li,.what-can-h3{
+          position: absolute;
+          left: 0;
+          top: -140px;
+          text-align: left;
+       }
+       .what-can-h3{
+          top: -100px;
+          font-size: 65px;
+       }
+       .what-can-li.st2{
+          top: -60px;
+       }
+       .what-can-li.st3{
+          top: 20px;
+       }
+       .what-can-li.st4{
+          top: 100px;
+       }
+       .what-can-li.st5{
+          top: 180px;
+       }
+     </style>
+     <div class="step what-can-h3" data-x="2800" data-y="1950" data-z="-10">
+        <h3>基于Jstracker,what can we do?</h3>
+    </div>
+
+    <div class="step" data-x="2800" data-y="2600" data-z="-10">
+        <li class="what-can-li st1">@游侠 实时监控JS报错</li>
+    </div>
+    <div class="step" data-x="2800" data-y="2600" data-z="-10">
+        <li class="what-can-li st2">性能分析 => 各个浏览器的onload时长</li>
+    </div>
+    <div class="step" data-x="2800" data-y="2600" data-z="-10">
+        <li class="what-can-li st3">模块的使用统计 => log</li>
+    </div>
+    <div class="step" data-x="2800" data-y="2600" data-z="-10">
+        <li class="what-can-li st4">用户行为分析 => 停留时间等</li>
+    </div>
+    <div class="step" data-x="2800" data-y="2600" data-z="-10">
+        <li class="what-can-li st5">功能验证</li>
+    </div>
+    <!-- 
+       以招商新增品牌的链路为例
+       演示
+         +  上传品牌LOGO前需要填写品牌持有人和品牌名称
+         +  上传资质之前需要添加一个商标
+         +  上传资质之前必须有商标证明
+         +  上传图片后老是出现红章检测不对，但是妈蛋，我这有红章啊，后端红章扫描     不太准确
+         +  不知道哪些是必填项，是否有必要做必填项的提醒
+         +  上传附件必须是excel，老是传错，是不是提醒还不够？
+     -->
+     <div class="step" data-x="2800" data-y="1600" data-z="500" data-rotate-x="-100" data-rotate-y="10">
+        <a href="http://zhaoshang.mall.taobao.com/common/addNewBrandLdq.htm" target="_blank"><img src="img/uploadex.png" alt="upload"></a>
+     </div>
+     <!-- 
+     ```
+        KISSY.add('a', function (S, codeTracker) {
+     
+            return {
+                init: function () {
+                    JSTracker.log('A-module');
+                }
+            };
+
+        }, {
+            requires: []
+        });
+        
+        KISSY.use('a', function (S, A) {
+            var isDaily = false;
+            try {
+                isDaily = TB.environment.isDaily;
+                JSTracker.info('TB-Env-cat');
+            } catch (err) {
+                isDaily = !!~location.host.indexOf('tmall.net');
+                JSTracker.warn('No-TB-Env-cat');
+            }
+            if ( isDaily ) {
+                JSTracker.error('isDaily');
+            } else {
+                A.init();
+            }
+        });
+
+     ```
+
+      -->
+     <div class="step slide" data-x="4000" data-y="1600" data-z="500" data-rotate-x="-100" data-rotate-y="10">
+        <pre style="left: -30px;position: relative;top: -45px;background: #F4F3EF;font-size: 16px;padding: 0;">
+        <code class="language-javascript">
+             //定义A模块
+             KISSY.add('a', function(S, codeTracker) {
+                 return {
+                     init: function() {
+                         JSTracker.log('A-module');
+                     }
+                 };
+             }, {
+                 requires: []
+             });
+
+             KISSY.use('a', function(S, A) {
+                 var isDaily = false;
+                 try {
+                     isDaily = TB.environment.isDaily;
+                     JSTracker.info('TB-Env-cat');//如果有环境变量记录一个消息日志,类型info
+                 } catch (err) {
+                     isDaily = !!~location.host.indexOf('tmall.net');
+                     JSTracker.warn('No-TB-Env-cat');//类型warn
+                 }
+                 if (isDaily) {//如果是daily环境，记录一个错误日志，类型error
+                     JSTracker.error('isDaily');
+                 } else {
+                     A.init();// 模块被初始化后，记录模块日志,类型log
+                 }
+             });
+        </code>
+        </pre>
+     </div>
+     <div class="step slide" data-x="5000" data-y="1600" data-z="500" data-rotate-x="-100" data-rotate-y="10">
+        <pre style="left: -30px;position: relative;top: 45px;background: #F4F3EF;font-size: 14px;padding: 0;">
+        <code class="language-javascript">
+            // JSTracker 埋点参数
+            JSTracker.send({
+                'msg': '', //可选 指定这次报错的描述。 默认： 空
+                'file': '', //可选 指定这次报错的js文件路径。 默认： 空
+                'line': 0, //可选 指定这次报错的js行号。 默认： 0
+                'delay': +new Date() - startTime, 
+                //可选 记录这次错误发生的时间和页面开始执行的时间差。 默认： 自动设置
+                'category': '', //可选 指定这个错误发生的分类。 默认： 空
+                'spm': win.JSTracker._configs.spm, //可选 告诉track服务器这个错误发生的spm
+                'sampling': win.JSTracker._configs.sampling, //可选 告诉track服务器这个错误发生的抽样，忽略全局设置的抽样率。 默认：全局抽样率
+                'url': location.href, //可选 虚拟url，指定后会将这个报错归类到指定的url。 默认：location.href
+                'ua': navigator.userAgent, //可选 指定ua。 默认：自动读取。
+                'scrolltop': (document.documentElement 
+                               && document.documentElement.scrollTop) 
+                               || (document.body && document.body.scrollTop) || 0,
+                'screen': screen.width + "x" + screen.height,
+                'nick': nick
+            });
+        </code>
+        </pre>
+     </div>
+     <!-- 
+        MDA工具
+          + 拉数据
+          + 分析数据
+          + 生成文档
+          + 根据自己分析需要生成不同的报表
+        目的： 让数据说话驱动业务改进，改善商家链路体验和商家运营效率
+      -->
+       <div class="step" data-x="4000" data-y="1600" data-z="1500" data-rotate-x="-100" data-rotate-y="10">
+          <img src="img/mda.png" alt="mda"> 
+           <a style="position:absolute;right:0;bottom:80px;" href="http://gitlab.alibaba-inc.com/jixiang.hjx/huaqi/raw/master/doc/mymy.maowo.tmall.com.html" target="_blank">EXAMPLE</a>
+       </div>
+      <!-- 
+         Jstracker平台的槽点
+         0. 数据不稳定
+         0. 拉取速度慢
+         0. 分析报表类型少
+
+         = >  @溪夏 提供了原始数据订阅的方式
+         = >  @文瑜 共建数据订阅平台
+       -->
+        <div class="step" data-x="5000" data-y="1600" data-z="500" data-rotate-x="-100" data-rotate-y="10">
+           <h4>Jstracker平台的槽点</h4>
+           <ul>
+               <li>
+                  <a>数据不稳定</a>
+               </li>
+               <li>
+                   <a>拉取速度慢</a>
+               </li>
+               <li>
+                   <a>分析报表类型少</a>
+               </li>
+               <li>
+                   <a>但现在看看，实时数据那部分，相当不错</a>
+               </li>
+           </ul>    
+        </div>
+         <div class="step" data-x="5000" data-y="3200" data-z="1500" data-rotate-x="-100" data-rotate-y="10">
+             <img src="img/report.png" alt="mda" style="position:absolute;left:0;top:-300px;"> 
+             <ul style="position: absolute;left: -100px;bottom:-100px;font-size: 40px;background: none;list-style: square;color: #666;">
+                <li>
+                   <span>搭建自己的数据存储平台，<a href="http://gitlab.alibaba-inc.com/xixia.sm/jstracker/wikis/get-realtime-raw-data" target="_blank">订阅jstarcker原始数据</a></span>
+                </li>
+                <li>
+                   提供更多纬度报表分析
+                </li>
+             </ul>
+         </div>
+       <!-- 
+         Thx....
+        -->
+         <div id="thanks" class="step big center" data-x="8000" data-y="600" data-z="500" data-rotate="0" data-scale="4">
+            <h1 style="font-size: 80px;">谢谢观看</h1>
+            <p class="footnote">
+              <span style="color:#706EFB">几</span>
+              <span style="color:#FF7235">羊</span><br/>2014.08.26</p>
+        </div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="impress.js"></script>
+<script src="prism.js"></script>
+<script>impress().init();</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+<style type="text/css">
+body{background:#d2d2d2;}
+a{display:block;width:80px;height:80px;}
+ul{list-style:none;width:300px;height:80px;}
+ul li{float:left;padding-right:5px;position:relative;}
+i{display:block;border:4px solid red;width:72px;height:72px;position:absolute;left:0;top:0;text-indent:-9999em;}
+.out{width:80px;height:80px;position:relative;float:left;padding-right:5px;}
+label{display:block;width:80px;height:80px;background:red;position:absolute;left:0;top:0;}
+</style>
+<head>
+<body>
+<dl>
+<dd>
+<dt><h1>非表单元素实现</h1></dt>
+<ul>
+<li><a href="#" title="红色" style="background:url(x1.jpg);"></a><i>选中</i></li>
+<li><a href="#" title="绿色" style="background:url(x2.jpg);"></a></li>
+<li><a href="#" title="蓝色" style="background:url(x3.jpg);"></a></li>
+</ul>
+</dd>
+</dl>
+<form action="#" method="get" name="form">
+<h1>表单元素实现</h1>
+<input type="radio" name="shoes" value="shoe1" />
+<input type="radio" name="shoes" value="shoe2" />
+<input type="radio" name="shoes" value="shoe3" />
+</form>
+</body>
+</html>
+<script type="text/javascript">
+//非表单元素实现JS
+var shoes=document.getElementsByTagName('ul')[0];
+var colors=shoes.getElementsByTagName('li');
+	for(var i=0;i<colors.length;i++){
+		colors[i].onclick=function(){
+		
+			for(var i=0;i<colors.length;i++){
+				var find=colors[i].getElementsByTagName('i')[0];
+				if(find){colors[i].removeChild(find);}
+			}
+			
+			var newI=document.createElement('i');
+			var txt=document.createTextNode('选中');
+			newI.appendChild(txt);
+			this.appendChild(newI);
+		}
+	}
+//表单元素JS
+var radios=document.getElementsByTagName('input');
+
+	for(var i=0;i<radios.length;i++){
+		radios[i].setAttribute('id','shoe'+(i+1));
+		var _radio=radios[i].cloneNode(true);
+		var out=document.createElement('div');
+		out.setAttribute('class','out');
+		out.appendChild(_radio);
+		radios[i].parentNode.replaceChild(out,radios[i]);
+		var _label=document.createElement('label');
+		_label.setAttribute('for','shoe'+(i+1));
+		_label.setAttribute('style','background:url(x'+(i+1)+'.jpg)')
+		radios[i].parentNode.appendChild(_label);
+	}
+var labels=document.getElementsByTagName('label');
+	for(var i=0;i<labels.length;i++){
+		labels[i].onclick=function(){
+			for(var i=0;i<labels.length;i++){
+			var find=labels[i].parentNode.getElementsByTagName('i')[0];
+			if(find)
+				{labels[i].parentNode.removeChild(find);}
+			}
+			var newI=document.createElement('i');
+			var txt=document.createTextNode('选中');
+			newI.appendChild(txt);
+			this.parentNode.appendChild(newI);
+		}
+	}
+</script>

@@ -1,0 +1,59 @@
+<div id="content">
+		<div class="content">
+			<h2 class="us_head"></h2>
+			<div class="somepic">
+				<ul>
+					<li><img src="images/about1.jpg" alt="" /></li>
+					<li><img src="images/about2.jpg" alt="" /></li>
+					<li><img src="images/about3.jpg" alt="" /></li>
+					<li><img src="images/about4.jpg" alt="" /></li>
+					<li><img src="images/about5.jpg" alt="" /></li>
+					<li><img src="images/about6.jpg" alt="" /></li>
+					<li><img src="images/about7.jpg" alt="" /></li>
+				</ul>
+			</div>
+			<div class="who">
+				<h4>我们是谁？</h4>
+				<p>我们在美丽的人间天堂——杭州，是一家充满活力的互联网企业。多年来专注于在线支付领域的解决方案，现正为全球在线商户打造无差别的整合平台。我们将通过创新的理念与技术，为全球在线商户降低收款成本、缩短提现周期、提高转换率与交易量。</p>
+				<h4>我们正在使用的技术是什么？</h4>
+				<div class="technology">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	//关于我们
+	index=0;
+	 $(".somepic li").eq(0).width(380);
+                $(".somepic li img").bind('click',function(){
+						index=$(this).parent().index();
+                        $(this).parent().animate({
+                            width:"380px"
+                        },500).siblings().animate({
+							width:"50px"
+                        },500);
+                });
+	x = setInterval(somepic,3000);
+	
+	$('.somepic li img').hover(function(){
+		clearInterval(x);
+	},function(){
+		x = setInterval(somepic,3000);
+	});
+});
+
+//幻灯片
+function somepic(){
+	if(index==6){
+		$(".somepic li").eq(0).animate({width:'380px'},500).
+									siblings().animate({width:'50px'},500);
+		index=0;
+	}else{
+		$('.somepic li').eq(index+1).animate({width:'380px'},500).
+									siblings().animate({width:'50px'},500);
+		index++;
+	}
+}
+</script>

@@ -1,0 +1,40 @@
+/***
+
+Dream's css
+
+@jixiangac
+
+***/
+*{margin:0;padding:0;}
+a{cursor:pointer;}
+img{border:0}
+#submit{width:50px;height:20px;background:none;color:#000;}
+input{margin:5px 5px 0 10px;}
+#wrap{width:640px;margin:auto;position:relative;}
+#header{height:131px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0 0 no-repeat;position:relative;}
+#header a#rolevalue{display:block;width:47px;height:49px;position:absolute;right:69px;top:2px;}
+#main{height:150px;}
+#main .left{float:left;width:264px;height:150px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0px -580px no-repeat;}
+#main .center{float:left;width:116px;height:150px;position:relative;}
+#main .center a{display:block;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0 -139px no-repeat;width:116px;height:150px;}
+#main .center a:hover{background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -140px -151px no-repeat;}
+#main .right{height:150px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -656px -556px no-repeat;overflow:hidden;zoom:1;}
+#foot{height:200px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0 -308px no-repeat}
+#mark{height:20px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0 -556px no-repeat}
+/*��Ʒ��*/
+#info{width:546px;height:341px;position:absolute;left:56px;top:55px;display:none;}
+#ihead{height:24px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) 0 -521px no-repeat;}
+#ihead a{float:right;display:block;height:24px;width:30px;}
+#ileft{float:left;width:263px;}
+#ileft #imenu{height:26px;width:263px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -268px -242px no-repeat;}
+#ileft #iman {height:197px;width:263px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -656px -336px no-repeat;}
+#ileft #ifabao{float:left;height:94px;width:263px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -268px -139px no-repeat;}
+
+#iright{float:right;width:283px;}
+#iright #box{height:271px;width:283px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -656px -3px no-repeat;}
+#iright #ifoot{height:46px;background:url(http://img1.dnschina.net/files/128/Demo/dream.jpg) -656px -282px no-repeat;overflow:hidden;zoom:1;}
+
+#role{width:257px;height:480px;background:url(images/value.jpg) 0 0 no-repeat;position:absolute;right:0px;top:0;display:none;}
+#role a{float:right;display:block;height:24px;width:30px;}
+
+#red{width:100px;height:100px;background:red;position:absolute;left:400px;top:100px;}

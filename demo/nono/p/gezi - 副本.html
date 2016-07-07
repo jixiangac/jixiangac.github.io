@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Gezi</title>
+<link rel="stylesheet" href="gezi.css"/>
+</head>
+<body>
+<div id="wrapper">
+	<div class="demo-container demo">
+		<div class="readers">
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black">1</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">2</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">3</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black">4</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black">5</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">6</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">IPAD4 10台</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">8</span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num">9</span>
+			</a>	
+		</div>
+	</div>
+</div>
+<audio src="ok.mp3" id="ok"></audio>
+<audio src="error.mp3" id="error"></audio>
+<audio src="good.mp3" id="good"></audio>
+</body>
+</html>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('.readers_pic').click(function(){
+			document.getElementById('ok').currentTime=0;
+			document.getElementById('ok').pause();
+			document.getElementById('error').currentTime=0;
+			document.getElementById('error').pause();
+			document.getElementById('good').currentTime=0;
+			document.getElementById('good').pause();
+			$(this).next().addClass('zhuan2');
+			$(this).addClass('zhuan');
+			if(!$(this).next('.readers_num').hasClass('black'))
+			{
+				$('.readers_pic').removeClass('zhuan');
+				$('.readers_num').removeClass('zhuan2');
+				document.getElementById('error').play();  
+			}else{
+				document.getElementById('ok').play();
+				clearInterval(x);
+				x = setInterval(autoFlip,5000);
+				goodLen=$('.readers').find('.zhuan').length;
+				if(goodLen==3){
+					document.getElementById('ok').currentTime=0;
+					document.getElementById('ok').pause();
+					document.getElementById('good').play(); 
+				}
+			}
+			
+		});
+		x = setInterval(autoFlip,5000);
+	});
+	
+	function autoFlip(){
+		$('.readers_pic').removeClass('zhuan');
+		$('.readers_pic').next().removeClass('zhuan2');
+	}	 
+</script>

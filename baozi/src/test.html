@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+<link rel="stylesheet" href="http://labs.music.baidu.com/muplayer/doc/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://labs.music.baidu.com/muplayer/doc/bower_components/prism/themes/prism.css">
+<link rel="stylesheet" href="http://labs.music.baidu.com/muplayer/doc/bower_components/prism/plugins/line-numbers/prism-line-numbers.css">
+<link rel="stylesheet" href="http://labs.music.baidu.com/muplayer/doc/css/playlist-demo.css">
+<script src="http://labs.music.baidu.com/muplayer/doc/bower_components/jquery/jquery.min.js"></script>
+<script src="http://labs.music.baidu.com/muplayer/doc/bower_components/prism/prism.js"></script>
+<script src="http://labs.music.baidu.com/muplayer/doc/bower_components/prism/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script src="./dist/player.js"></script>
+<script src="http://labs.music.baidu.com/muplayer/doc/js/doc.js"></script>
+
+</head>
+<body>
+    
+
+<div class="mod">
+    <div class="hd">播放列表及交互</div>
+    <div class="bd">
+        <ul id="playlist-demo">
+            <li data-link="./dis/empty.mp3"><i class="play-btn"></i>雨声(mp3)</li>
+            <li data-link="http://7xldo0.media1.z0.glb.clouddn.com/baozi想留下来陪你生活.mp3"><i class="play-btn"></i>脚步声(mp3)</li>
+            <li data-link="http://7xldo0.media1.z0.glb.clouddn.com/baozi朋友都结婚去了.mp3"><i class="play-btn"></i>西湖(mp3)</li>
+        </ul>
+        <pre class="line-numbers hotfix"><code class="language-javascript"></code></pre>
+    </div>
+</div>
+
+
+<script id="code">
+// 通过全局变量的方式初始化
+var player = new _mu.Player({
+        mode: 'list',
+        baseDir: 'dist'
+    }),
+    $pl = $('#playlist-demo'),
+    reset = function() {
+        $pl.find('> li').removeClass('playing pause')
+            .find('.time').remove();
+    },
+    findCurrItem = function() {
+        var link = player.getCur();
+        link = link.substring(link.indexOf('mp3/'));
+        return $pl.find('[data-link="' + link + '"]');
+    },
+    $time = $('<span class="time"></span>');
+
+$pl.on('click', '> li', function() {
+    var $this = $(this),
+        sids;
+
+    if ($this.hasClass('playing')) {
+        player.pause();
+    } else if ($this.hasClass('pause')) {
+        player.play();
+    } else {
+        sids = $this.parent().find('> li').map(function() {
+            return $(this).data('link');
+        }).get();
+
+        player.reset().add(sids)
+            .setCur($this.data('link')).play();
+    }
+});
+
+player.on('playing pause', function() {
+    reset();
+    findCurrItem().addClass(player.getState()).append($time);
+}).on('ended', reset).on('timeupdate', function() {
+    $time.text(player.curPos(true) + ' / ' + player.duration(true));
+});
+</script>
+
+<script>
+$(function() {
+    _mu.doc.init('playlist');
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>Gezi</title>
+<link rel="stylesheet" href="gezi.css"/>
+</head>
+<body>
+<div id="wrapper">
+	<div class="demo-container demo">
+		<div class="readers">
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num black"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>
+			
+			<a href="#">
+				<span class="readers_pic"></span>
+				<span class="readers_num"></span>
+			</a>	
+		</div>
+	</div>
+	<div id="count">你已经点了<strong id="num">0</strong>次</div>
+<div id="music" style="height:0;width:0;">
+		<div id="jquery_jplayer_1" class="jp-jplayer"></div>
+		<div id="jp_interface_1" class="jp-interface"></div>
+		<div id="jquery_jplayer_2" class="jp-jplayer"></div>
+		<div id="jp_interface_2" class="jp-interface"></div>
+</div>
+  
+  
+</div>
+</body>
+</html>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="mobile.js"></script>
+<script type="text/javascript" src="jplayer.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		var index=0;
+		var x = setTimeout(autoFlip,5000);
+		/*=musci
+		------------------*/
+		$("#jquery_jplayer_1").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				mp3: "good.mp3"
+			});
+		},
+		ended: function (event) {
+			//$("#jquery_jplayer_2").jPlayer("play", 0);
+		},
+		swfPath: "js",
+		supplied: "mp3"
+	})
+	.bind($.jPlayer.event.play, function() { // Using a jPlayer event to avoid both jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+	});
+
+	$("#jquery_jplayer_2").jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				mp3: "error.mp3"
+			});
+		},
+		ended: function (event) {
+			//$("#jquery_jplayer_1").jPlayer("play", 0);
+		},
+		swfPath: "js",
+		supplied: "mp3",
+		cssSelectorAncestor: "#jp_interface_2"
+	})
+	.bind($.jPlayer.event.play, function() { // Using a jPlayer event to avoid both jPlayers playing together.
+			$(this).jPlayer("pauseOthers");
+	});
+	/*= 操作
+	-------------------------------*/
+		$('.readers a').bind('tap',function(){
+				$('#num').html(++index);
+			if($(this).find('.readers_num').hasClass('black'))
+			{	
+				$(this).find('.readers_pic').addClass('zhuan');
+				$(this).find('.readers_num').addClass('zhuan2');
+				clearTimeout(x);
+				x = setTimeout(autoFlip,5000);
+				goodLen=$('.readers').find('.zhuan').length;
+				if(goodLen==3){
+					$("#jquery_jplayer_1").jPlayer("play", 0);
+					if(index<=5)
+						$('#count').html('你真是女神呀，才点击'+index+'次就完成了任务！');
+					else if(index<=10)
+						$('#count').html('哎哟，不错哦，点击'+index+'次完成了任务！');
+					else
+						$('#count').html('亲爱的屌丝，你颤抖的点击'+index+'次终于完成了任务，但是女神已经走了！');
+				}else{
+					$("#jquery_jplayer_1").jPlayer("play", 0);
+				}
+				
+				return false;
+				
+			}else{
+				$('.readers_pic').removeClass('zhuan');
+				$('.readers_num').removeClass('zhuan2');
+				$("#jquery_jplayer_2").jPlayer("play", 0);
+				return false;
+			}
+			
+		});
+		
+	});
+	function autoFlip(){
+		$('.readers_pic').removeClass('zhuan');
+		$('.readers_pic').next().removeClass('zhuan2');
+	}	 
+</script>

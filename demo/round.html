@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBliC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>焦点图片特效</title> 
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="round.js"></script>
+
+
+<style>
+.roundabout-holder {
+    list-style:none;
+    width:40em;
+    height:360px;
+    margin:1em auto;
+}
+
+.roundabout-in-focus {
+    cursor:auto;
+}
+
+.roundabout-moveable-item {
+    height:302px;
+    width:372px;
+    cursor:pointer;
+}
+
+.roundabout-moveable-item img {
+    width:100%;
+    border:5px solid #fff;
+    outline:1px solid #ECEBEB;
+}
+
+#roundabout-nav {
+    margin:0 auto;
+    width:110px;
+}
+
+#roundNext {
+    float:left;width:53px;border:0;
+}
+
+#roundPrev {
+    float:right;
+}
+#roundabout-nav img{border:0;}
+h1{font-family:微软雅黑;margin-left:200px;}
+h1 a{text-decoration:none;color:#d2d2d2;}
+h1 a:hover{color:#d12828;}
+</style>
+
+                   <ul id="myRoundabout">                       
+                       <li><img src="http://farm7.static.flickr.com/6022/5992806889_96f4eb9035.jpg" alt="Roundabout" /></li>
+                        <li><img src="http://farm7.static.flickr.com/6020/5992807139_b4641f67a7.jpg" alt="Roundabout" /></li>                       
+                       <li><img src="http://farm7.static.flickr.com/6145/5993365910_cc07902a02.jpg" alt="Roundabout" /></li>
+                      
+                    </ul>                  
+                    
+					<div id="roundabout-nav">                
+                        <a href="#" id="roundNext"><img src="http://www.jixiangac.com/wp-content/themes/ReMind/images/arrow-left.png" alt="Previous" /></a>
+						<a href="#" id="roundPrev"><img src="http://www.jixiangac.com/wp-content/themes/ReMind/images/arrow-right.png" alt="Next" /></a>                                                           
+                    </div> 
+<h1><a href="http://www.jixiangac.com/focus-images.orz/">焦点图片特效</a></h1>					
+                    <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('ul#myRoundabout').roundabout({
+                            duration: 1000,
+                            btnNext: '#roundNext',
+                            btnPrev: '#roundPrev'
+                            });
+                    });
+                    </script>
+					

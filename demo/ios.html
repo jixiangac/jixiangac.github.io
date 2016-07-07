@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>IOS</title>
+	<style type="text/css">
+		#ios-tip{
+	width:300px;
+	padding:20px;
+	position: fixed;
+	left:50%;
+	top:50%;
+	line-height: 2;
+	margin-left:-150px;
+	margin-top:-100px;
+	background:red;
+	border:2px solid #ccc;
+	color:#fff;
+}
+	</style>
+</head>
+<body>
+	hey~!!!
+</body>
+</html>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js"></script>
+<script type="text/javascript">
+	/**
+ * 判断终端是否为IOS
+ */
+var IOS = {
+	versions: function() {
+		var u = navigator.userAgent;
+		return !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+	},
+	tips: function() {
+		var tip = '<div id="ios-tip">你好因为您现在使用的是IOS，不支持FLASH，请下载我们的APP进行游戏！</div>';
+		$('body').append(tip);
+	}
+}
+if(IOS.versions()) {
+	IOS.tips();
+}
+</script>

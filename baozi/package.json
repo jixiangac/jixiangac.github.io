@@ -1,0 +1,1 @@
+{"name":"baozi","description":"baozi","version":"1.0.0","keywords":[],"screenshot":"http://gtms01.alicdn.com/tps/i1/T1JI8AFH4dXXXP80c_-180-180.jpeg","kissyVersion":"1.4.14","feDependencies":{},"devDependencies":{"gulp":"3.x.x","gulp-code":"*","gulp-less":"*","@ali/gulp-xtpl":"*","gulp-if":"*","gulp-plumber":"^0.6.5","del":"^0.1.3","colors":"^0.6.2"}}

@@ -1,0 +1,177 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,Arial,sans-serif;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('//at.alicdn.com/t/font_1441714955_8493526.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1441714955_8493526.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1441714955_8493526.woff') format('woff'), /* chrome、firefox */
+  url('//at.alicdn.com/t/font_1441714955_8493526.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1441714955_8493526.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+#playlist-demo{
+  position: relative;
+  z-index: 999;
+  width: 990px;
+    margin: 50px auto;
+    .item{
+        display: block;
+    width: 66px;
+    height: 66px;
+    position: absolute;
+    }
+  .item a{
+      display: block;
+      width: 66px;
+      height: 66px;
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 66px;
+      font-size: 12px;
+      cursor: pointer;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 1.0;
+      border: 2px solid #000;
+      box-shadow: 0px 0px 3px rgba(0,0,0,0.6);
+      -moz-border-radius: 34px;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.6),
+ 0px 0px 0px 40px rgba(0,0,0,0.3) inset;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    &:hover{
+        opacity: 1.0;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.6),0px 0px 0px 0px rgba(0,0,0,0.1) inset;
+    }
+      &.playing{
+        -webkit-animation: rotate 2s infinite linear;
+        -moz-animation: rotate 2s infinite linear;
+        -ms-animation: rotate 2s infinite linear;
+        -o-animation: rotate 2s infinite linear;
+        animation: rotate 2s infinite linear;
+        -webkit-animation-play-state: running;
+        -moz-animation-play-state: running;
+        -ms-animation-play-state: running;
+        -o-animation-play-state: running;
+        animation-play-state: running;
+           opacity: 1.0;
+           border-color: #fff;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.6),0px 0px 0px 0px rgba(0,0,0,0.1) inset;
+      }
+  }
+}
+.bx-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    img{
+    	position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    width: 100%;
+	    z-index: 101;
+      height: 100%;
+    }
+}
+.bx-overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: transparent url(http://www.gbtags.com/technology/jquerytutorial/20111120fullscreenimageblureffect/images/pattern.png) repeat top left;
+    z-index: 10;
+}
+.play-btn{
+    font-style: normal;
+    &:after{
+        content: '\e607';
+        font-family: 'iconfont';
+        font-size: 37px;
+        color: rgba(255,255,255,0.7);
+        position: relative;
+        left: 3px;
+    }
+}
+.playing{
+    .play-btn:after{
+        content:  '\e600';
+        left: 1px;
+        top: 3px;
+    }
+}
+@import "mods/tooltip";
+#J_X{
+  display: none;
+}
+.fnSSS(@id,@x,@y){
+    #music@{id}{
+       left: @x;
+       top: @y;
+    }
+}
+.fnSSS(1, 40px, 0px);
+.fnSSS(2, 310px, 30px);
+.fnSSS(3, 450px, 110px);
+.fnSSS(4, 600px, 40px);
+.fnSSS(5, 550px, 500px);
+.fnSSS(6, 50px, 380px);
+.fnSSS(7, 350px, 420px);
+.fnSSS(8, 250px, 260px);
+.fnSSS(9, 450px, 260px);
+.fnSSS(10, 750px, 260px);
+.fnSSS(11, 750px, 460px);
+.fnSSS(12, 550px, 360px);
+@media(max-width:414px) {
+  #J_M{
+     display: none;
+  }
+  #J_X{
+      display: block;
+  }
+  #playlist-demo{
+    width: 100%;
+  }
+.fnSSS(1, 50px, 0px);
+.fnSSS(2, 250px, 0px);
+.fnSSS(3, 90px, 110px);
+.fnSSS(4, 191px, 90px);
+.fnSSS(5, 50px, 220px);
+.fnSSS(6, 250px, 220px);
+.fnSSS(7, 70px, 330px);
+.fnSSS(8, 210px, 310px);
+.fnSSS(9, 120px, 440px);
+.fnSSS(10, 280px, 390px);
+.fnSSS(11, 30px, 450px);
+.fnSSS(12, 220px, 465px);
+
+}
+.ui-loader{
+  display: none;
+}
+.ui-page{
+  overflow: hidden;
+}

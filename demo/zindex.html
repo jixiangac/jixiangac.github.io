@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<!--[if IE 6]>
+<html id="ie6" class="is_ie">
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" class="is_ie">
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" class="is_ie">
+<![endif]-->
+<!--[if IE 9]>
+<html id="ie9" class="is_ie">
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html>
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style type="text/css">
+*{margin:0;padding:0;}
+#wrap{
+	width:980px;
+	margin:50px auto;
+}
+#nottable{
+	width:300px;
+	margin-left:150px;
+}
+.mobile {
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 1px -1px 12px #DADBDB;
+  margin: 0 auto;
+  width: 685px;
+}
+
+.mobile thead tr {
+    background:#EB7A24;
+    border-bottom: 1px solid #E1E1E1;
+    color: #fff;
+}
+.mobile thead th {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+.mobile td {
+  padding: 5px 10px 10px;
+  vertical-align: middle;
+  text-align: center;
+}
+.mobile td span{
+  color:#2181A9;
+  cursor:pointer;
+}
+
+.pop-wrap {
+    position: relative;
+}
+/*.mobile td a:hover .popover{
+  display: block;
+}*/
+.popover {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 60px;
+    padding: 1px;
+    position: absolute;
+    text-align: left;
+    white-space: normal;
+    width: 386px;
+    z-index: 1200;
+}
+#ie6 .popover, #ie7 .popover, #ie8 .popover {
+    border: 1px solid #CCCCCC;
+}
+.popover-title {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #EBEBEB;
+    border-radius: 5px 5px 0 0;
+    color: #F76D36;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    margin: 0;
+    padding: 8px 14px;
+}
+.popover-content {
+    padding: 9px 14px;
+}
+.popover-content p {
+    line-height: 1.5;
+}
+</style>
+<body>
+<div id="wrap">
+	<p style="text-align: center;">
+    <button id="zindex0">设置z-index:0</button>
+	 <label for="check">
+	   <input type="checkbox" id="check">
+	   加上递减的z-index
+	 </label>
+	</p>
+  <div id="nottable">
+  	  <p>非表格</p>
+		<div class="pop-wrap">
+        	  <a><span>恶魔猎手</span>
+                <div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>恶魔猎手是被暗夜精灵族社会排斥的黑暗战士。他们在很久以前就和黑暗力量立下契约，要用自己可怕的力量于混乱的力量对抗到底。他们弄瞎了自己的双眼，从而获得了可以迅速发现恶魔的能力。他们手持魔力强大的武器，并以此猎杀恶魔。虽然恶魔猎手可以算得上是暗夜精灵族中最强大的战士，但他们无私的牺牲却不被自己的同胞理解</p>
+                    </div>
+                </div>
+        	 </a>
+       </div>
+
+        <div class="pop-wrap">        	
+        	 <a><span>守望者</span>
+        		 <div class="popover">
+                   <h3 class="popover-title">英雄介绍</h3>
+                     <div class="popover-content">
+                       <p>神秘的守望者主要服务于卡利姆多大陆的暗夜精灵警备机构.和其它暗夜精灵族的战士不同的是,守望者常常去执行例如狱卒,刺客和赏金猎人等任务.当有罪犯脱逃时,守望者将会利用自己奇特的能力将其缉拿归案.守望者有一种被成为"闪耀"的能力,利用这个技能和本身的高机动性克敌制胜。</p>
+                     </div>
+                 </div>
+        	 </a>
+        	</div>
+
+          <div class="pop-wrap">
+        	<a><span>月之女祭司</span>
+        		<div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>作为哨兵部队的领袖,无所畏惧的月亮女祭司体现了暗夜精灵族古老的月亮女神艾露尼的力量与优雅.她们穿着闪耀着银光的铠甲,骑着凶猛的白虎参加战斗.为了保护她们的家园,手持魔弓的女祭司不会对任何侵略暗夜精灵族领地的邪恶力量退让。</p>
+                    </div>
+                </div>
+        	</a>
+          </div>
+          <div class="pop-wrap">
+        	<a><span>丛林守护者</span>
+        		<div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>这些强大的守护者是半神人赛纳留斯宠爱的儿子。和他们娇小的树妖姐妹一样，守护者有着半精灵半雄鹿的外表。他们拥有巨大的鹿角和树叶状的鬃毛。森林守护者的右手化成了树根状的巨爪，他们拥有许多超自然的奇特能力。虽然他们通常住在海加尔山脉的神月森林中，但是当卡利姆多大陆遭到入侵时，森林守护者总是会响应战斗的召唤。</p>
+                    </div>
+                </div>
+        	</a>
+          </div>
+  </div>
+  <table class="mobile">
+  	<caption>表格</caption>
+    <thead>
+      <tr>
+        <th>
+          英雄
+        </th>
+        <th>
+          技能
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+        	<div class="pop-wrap">
+        	  <a><span>恶魔猎手</span>
+                <div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>恶魔猎手是被暗夜精灵族社会排斥的黑暗战士。他们在很久以前就和黑暗力量立下契约，要用自己可怕的力量于混乱的力量对抗到底。他们弄瞎了自己的双眼，从而获得了可以迅速发现恶魔的能力。他们手持魔力强大的武器，并以此猎杀恶魔。虽然恶魔猎手可以算得上是暗夜精灵族中最强大的战士，但他们无私的牺牲却不被自己的同胞理解</p>
+                    </div>
+                </div>
+        	  </a>
+        	</div>
+        </td>
+        <td>法力燃烧、献祭、闪避、变身</td>
+      </tr>
+
+      <tr>
+        <td>
+        	<div class="pop-wrap">        	
+        	 <a><span>守望者</span>
+        		 <div class="popover">
+                   <h3 class="popover-title">英雄介绍</h3>
+                     <div class="popover-content">
+                       <p>神秘的守望者主要服务于卡利姆多大陆的暗夜精灵警备机构.和其它暗夜精灵族的战士不同的是,守望者常常去执行例如狱卒,刺客和赏金猎人等任务.当有罪犯脱逃时,守望者将会利用自己奇特的能力将其缉拿归案.守望者有一种被成为"闪耀"的能力,利用这个技能和本身的高机动性克敌制胜。</p>
+                     </div>
+                 </div>
+        	 </a>
+        	</div>
+        </td>
+        <td>刀阵、闪耀、暗影突袭、复仇天神</td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="pop-wrap">
+        	<a><span>月之女祭司</span>
+        		<div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>作为哨兵部队的领袖,无所畏惧的月亮女祭司体现了暗夜精灵族古老的月亮女神艾露尼的力量与优雅.她们穿着闪耀着银光的铠甲,骑着凶猛的白虎参加战斗.为了保护她们的家园,手持魔弓的女祭司不会对任何侵略暗夜精灵族领地的邪恶力量退让。</p>
+                    </div>
+                </div>
+        	</a>
+          </div>
+        </td>
+        <td>猫头鹰、灼热之箭、强击光环、流星雨</td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="pop-wrap">
+        	<a><span>丛林守护者</span>
+        		<div class="popover">
+                  <h3 class="popover-title">英雄介绍</h3>
+                    <div class="popover-content">
+                      <p>这些强大的守护者是半神人赛纳留斯宠爱的儿子。和他们娇小的树妖姐妹一样，守护者有着半精灵半雄鹿的外表。他们拥有巨大的鹿角和树叶状的鬃毛。森林守护者的右手化成了树根状的巨爪，他们拥有许多超自然的奇特能力。虽然他们通常住在海加尔山脉的神月森林中，但是当卡利姆多大陆遭到入侵时，森林守护者总是会响应战斗的召唤。</p>
+                    </div>
+                </div>
+        	</a>
+          </div>
+        </td>
+        <td>
+        	缠绕、自然之力、树人荆棘光环、宁静
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+</body>
+</html>
+<script type="text/javascript">
+  var jixiang={
+  	$:function(obj){
+      return document.getElementById(obj);
+  	},
+  	getByClass:function(className,content){
+      content=content || document;
+      if(content.getElementsByClassName){
+      	return content.getElementsByClassName(className);
+      }
+      var nodes = content.getElementsByTagName('*');
+      var ret = [];
+      for(var i=0;i<nodes.length;i++){
+        if(jixiang.hasClass(nodes[i],className)) ret.push(nodes[i]);
+      }
+      return ret;
+  	},
+  	hasClass:function(node,className){
+      var names = node.className.split(/\s+/);
+        for (var i = 0; i < names.length; i++) {
+          if (names[i] == className) return true;
+  	   }
+       return false;
+  	}
+  }
+  var wrap = jixiang.$('wrap');
+  var check = jixiang.$('check');
+  var agroup = jixiang.getByClass('pop-wrap');
+  for(var i=0,len=agroup.length;i<len;i++){
+  	agroup[i].index=i;
+  	agroup[i].a = agroup[i].getElementsByTagName('a')[0];
+  	agroup[i].tip=jixiang.getByClass('popover',agroup[i].a)[0];
+  	agroup[i].onmouseover=function(){
+        this.tip.style.display='block';
+  	}
+  	agroup[i].onmouseout=function(){
+        this.tip.style.display='none';
+  	}
+  }
+  //加上z-index:0
+  jixiang.$('zindex0').onclick=function(){
+    for(var i=0,len=agroup.length;i<len;i++){ 
+      agroup[i].style.zIndex=0;
+    }
+  }
+  //开关
+  check.onclick=function(){
+  	if(this.checked){
+  	  var popIndex=5555;
+      for(var i=0,len=agroup.length;i<len;i++){	
+        agroup[i].style.zIndex=(--popIndex);
+      }
+  	}
+  	else{
+      for(var i=0,len=agroup.length;i<len;i++){	
+        agroup[i].style.cssText='';
+      }
+  	}
+  }
+</script>

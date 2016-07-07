@@ -1,0 +1,127 @@
+/*
+*	
+*	@Description   Coming soon
+*	@Author 	   Jixiangac
+*
+*
+*/
+	*{margin:0;padding:0;}
+	body{
+		font-family:'Microsoft Yahei';
+	}
+	#wrapper{
+		background:url(bg_helv.gif) 0 0 repeat-x;
+		width:100%;
+		margin:0 auto;
+		height:675px;
+		position:relative;
+		overflow:hidden;
+	}
+	#foot{
+		background:#02546A  url(bottom.gif) 0 bottom repeat-x;
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		height:185px;
+	}
+	#logo{
+		color:#fff;
+		font-size:500%;
+		position:absolute;
+		left:50%;
+		top:10%;
+		width:600px;
+		}
+	#haitun{
+		background:url(body.png) 0 0 no-repeat;
+		width:300px;
+		height:390px;
+		position:absolute;
+		margin:0 0 0 150px;
+		left:50%;
+		bottom:-200px;
+	}
+	#do{
+		position:absolute;
+		width:450px;
+		height:350px;
+		right:223px;
+		bottom:158px;
+	}
+	.tun{
+		background:url(tun.png) -12px -3px no-repeat;
+		position:absolute;
+		width:120px;
+		height:156px;
+		right:0;
+		bottom:-106px;
+		display:none;
+	}
+	
+	
+	#water1{
+		width:73px;
+		height:77px;
+		background:url(shui.png) 0 0 no-repeat;
+		position:absolute;
+		left:0;
+		bottom:0;
+		opacity:0;
+	}
+	.water,.shui1,.shui2{
+		width:73px;
+		height:77px;
+		background:url(shui.png) 0 0 no-repeat;
+		position:absolute;
+		bottom:200px;
+		right:800px;
+		}
+	.shui1{
+		right:800px;
+	}
+	.shui2{
+		background:url(shui2.png) 0 0 no-repeat;
+		right:600px;
+		}
+	.shui1,.shui2{
+		bottom:-100px;
+	}
+	.zhuan{
+		-webkit-animation:rotate 5s 1 linear;
+		-moz-animation:rotate 5s 1 linear;
+	}
+	.logoz{
+		-webkit-animation:ry 1s 1 linear;
+		-moz-animation:ry 1s 1 linear;
+	}
+	.water1{
+		-webkit-animation:rotate-w 1s 1 linear;
+	}
+	@-webkit-keyframes rotate-w{
+		0%{opacity:1;}
+		50%{bottom:80px;}
+		70%{bottom:100px}
+		100%{opacity:0;}	
+	}
+	@-webkit-keyframes rotate{
+        0%{-webkit-transform:rotate(0deg)}
+        50%{-webkit-transform:rotate(-180deg)}
+        100%{-webkit-transform:rotate(-360deg)}
+    }
+	
+	@-moz-keyframes rotate{
+        0%{-moz-transform:rotate(0deg)}
+        50%{-moz-transform:rotate(-125deg)}
+        100%{-moz-transform:rotate(-380deg)}
+    }
+	 @-webkit-keyframes ry{
+		0% { -webkit-transform:rotateX(0deg); }
+		50% { -webkit-transform:rotateX(180deg); }
+		100% { -webkit-transform:rotateX(360deg); }
+		}
+	@-moz-keyframes ry{
+		0% { -moz-transform:rotateX(0deg); }
+		50% { -moz-transform:rotateX(180deg); }
+		100% { -moz-transform:rotateX(360deg); }
+		}
